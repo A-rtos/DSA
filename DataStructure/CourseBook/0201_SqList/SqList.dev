@@ -28,7 +28,7 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=1
-CompilerSettings=0000000000000000001000000
+CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0
 UnitCount=3
 
 [VersionInfo]
@@ -51,16 +51,6 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit2]
-FileName=SqList.h
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit1]
 FileName=SqList.cpp
 CompileCpp=0
 Folder=
@@ -71,6 +61,16 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
+FileName=SqList.h
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit1]
 FileName=SqList-main.cpp
 CompileCpp=0
 Folder=

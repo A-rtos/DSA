@@ -1,148 +1,148 @@
 /*=============================
- * ÏßÐÔ±íµÄË³Ðò´æ´¢½á¹¹£¨Ë³Ðò±í£©
+ * çº¿æ€§è¡¨çš„é¡ºåºå­˜å‚¨ç»“æž„ï¼ˆé¡ºåºè¡¨ï¼‰
  *
- * °üº¬Ëã·¨: 2.3¡¢2.4¡¢2.5¡¢2.6
+ * åŒ…å«ç®—æ³•: 2.3ã€2.4ã€2.5ã€2.6
  =============================*/
 
 #ifndef SQLIST_H
 #define SQLIST_H
 
 #include <stdio.h>
-#include <stdlib.h>     // Ìá¹©malloc¡¢realloc¡¢free¡¢exitÔ­ÐÍ
-#include "Status.h"     //**¡ø01 Ð÷ÂÛ**//
+#include <stdlib.h>     // æä¾›mallocã€reallocã€freeã€exitåŽŸåž‹
+#include "Status.h"     //**â–²01 ç»ªè®º**//
 
-/* ºê¶¨Òå */
-#define LIST_INIT_SIZE 100  // Ë³Ðò±í´æ´¢¿Õ¼äµÄ³õÊ¼·ÖÅäÁ¿
-#define LISTINCREMENT  10   // Ë³Ðò±í´æ´¢¿Õ¼äµÄ·ÖÅäÔöÁ¿
+/* å®å®šä¹‰ */
+#define LIST_INIT_SIZE 100  // é¡ºåºè¡¨å­˜å‚¨ç©ºé—´çš„åˆå§‹åˆ†é…é‡
+#define LISTINCREMENT  10   // é¡ºåºè¡¨å­˜å‚¨ç©ºé—´çš„åˆ†é…å¢žé‡
 
-/* Ë³Ðò±íÔªËØÀàÐÍ¶¨Òå */
+/* é¡ºåºè¡¨å…ƒç´ ç±»åž‹å®šä¹‰ */
 typedef int ElemType;
 
 /*
- * Ë³Ðò±í½á¹¹
+ * é¡ºåºè¡¨ç»“æž„
  *
- * ×¢£ºelemÔÚÊ¹ÓÃÇ°ÐèÒªÏÈÎªÆä·ÖÅäÄÚ´æ£¬ÇÒÔªËØ´Óelem[0]´¦¿ªÊ¼´æ´¢
+ * æ³¨ï¼šelemåœ¨ä½¿ç”¨å‰éœ€è¦å…ˆä¸ºå…¶åˆ†é…å†…å­˜ï¼Œä¸”å…ƒç´ ä»Želem[0]å¤„å¼€å§‹å­˜å‚¨
  */
 typedef struct {
-    ElemType* elem;     // Ë³Ðò±í´æ´¢¿Õ¼äµÄ»ùÖ·£¨Ö¸ÏòË³Ðò±íËùÕ¼ÄÚ´æµÄÆðÊ¼Î»ÖÃ£©
-    int length;   // µ±Ç°Ë³Ðò±í³¤¶È£¨°üº¬¶àÉÙÔªËØ£©
-    int listsize; // µ±Ç°·ÖÅäµÄ´æ´¢ÈÝÁ¿£¨¿ÉÒÔ´æ´¢¶àÉÙÔªËØ£©
+    ElemType* elem;     // é¡ºåºè¡¨å­˜å‚¨ç©ºé—´çš„åŸºå€ï¼ˆæŒ‡å‘é¡ºåºè¡¨æ‰€å å†…å­˜çš„èµ·å§‹ä½ç½®ï¼‰
+    int length;   // å½“å‰é¡ºåºè¡¨é•¿åº¦ï¼ˆåŒ…å«å¤šå°‘å…ƒç´ ï¼‰
+    int listsize; // å½“å‰åˆ†é…çš„å­˜å‚¨å®¹é‡ï¼ˆå¯ä»¥å­˜å‚¨å¤šå°‘å…ƒç´ ï¼‰
 } SqList;
 
 
 /*
- * ¨€¨€¨€¨€¨€¨€¨€¨€ Ëã·¨2.3 ¨€¨€¨€¨€¨€¨€¨€¨€
+ * â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ ç®—æ³•2.3 â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
  *
- * ³õÊ¼»¯
+ * åˆå§‹åŒ–
  *
- * ³õÊ¼»¯³É¹¦Ôò·µ»ØOK£¬·ñÔò·µ»ØERROR¡£
+ * åˆå§‹åŒ–æˆåŠŸåˆ™è¿”å›žOKï¼Œå¦åˆ™è¿”å›žERRORã€‚
  */
 Status InitList(SqList* L);
 
 /*
- * Ïú»Ù(½á¹¹)
+ * é”€æ¯(ç»“æž„)
  *
- * ÊÍ·ÅË³Ðò±íËùÕ¼ÄÚ´æ¡£
+ * é‡Šæ”¾é¡ºåºè¡¨æ‰€å å†…å­˜ã€‚
  */
 Status DestroyList(SqList* L);
 
 /*
- * ÖÃ¿Õ(ÄÚÈÝ)
+ * ç½®ç©º(å†…å®¹)
  *
- * Ö»ÊÇÇåÀíË³Ðò±íÖÐ´æ´¢µÄÊý¾Ý£¬²»ÊÍ·ÅË³Ðò±íËùÕ¼ÄÚ´æ¡£
+ * åªæ˜¯æ¸…ç†é¡ºåºè¡¨ä¸­å­˜å‚¨çš„æ•°æ®ï¼Œä¸é‡Šæ”¾é¡ºåºè¡¨æ‰€å å†…å­˜ã€‚
  */
 Status ClearList(SqList* L);
 
 /*
- * ÅÐ¿Õ
+ * åˆ¤ç©º
  *
- * ÅÐ¶ÏË³Ðò±íÖÐÊÇ·ñ°üº¬ÓÐÐ§Êý¾Ý¡£
+ * åˆ¤æ–­é¡ºåºè¡¨ä¸­æ˜¯å¦åŒ…å«æœ‰æ•ˆæ•°æ®ã€‚
  *
- * ·µ»ØÖµ£º
- * TRUE : Ë³Ðò±íÎª¿Õ
- * FALSE: Ë³Ðò±í²»Îª¿Õ
+ * è¿”å›žå€¼ï¼š
+ * TRUE : é¡ºåºè¡¨ä¸ºç©º
+ * FALSE: é¡ºåºè¡¨ä¸ä¸ºç©º
  */
 Status ListEmpty(SqList L);
 
 /*
- * ¼ÆÊý
+ * è®¡æ•°
  *
- * ·µ»ØË³Ðò±í°üº¬µÄÓÐÐ§ÔªËØµÄÊýÁ¿¡£
+ * è¿”å›žé¡ºåºè¡¨åŒ…å«çš„æœ‰æ•ˆå…ƒç´ çš„æ•°é‡ã€‚
  */
 int ListLength(SqList L);
 
 /*
- * È¡Öµ
+ * å–å€¼
  *
- * »ñÈ¡Ë³Ðò±íÖÐµÚi¸öÔªËØ£¬½«Æä´æ´¢µ½eÖÐ¡£
- * Èç¹û¿ÉÒÔÕÒµ½£¬·µ»ØOK£¬·ñÔò£¬·µ»ØERROR¡£
+ * èŽ·å–é¡ºåºè¡¨ä¸­ç¬¬iä¸ªå…ƒç´ ï¼Œå°†å…¶å­˜å‚¨åˆ°eä¸­ã€‚
+ * å¦‚æžœå¯ä»¥æ‰¾åˆ°ï¼Œè¿”å›žOKï¼Œå¦åˆ™ï¼Œè¿”å›žERRORã€‚
  *
- *¡¾±¸×¢¡¿
- * ½Ì²ÄÖÐiµÄº¬ÒåÊÇÔªËØÎ»ÖÃ£¬´Ó1¿ªÊ¼¼ÆÊý£¬µ«Õâ²»·ûºÏ±àÂëµÄÍ¨ÓÃÔ¼¶¨¡£
- * Í¨³££¬iµÄº¬ÒåÓ¦¸ÃÖ¸Ë÷Òý£¬¼´´Ó0¿ªÊ¼¼ÆÊý¡£
+ *ã€å¤‡æ³¨ã€‘
+ * æ•™æä¸­içš„å«ä¹‰æ˜¯å…ƒç´ ä½ç½®ï¼Œä»Ž1å¼€å§‹è®¡æ•°ï¼Œä½†è¿™ä¸ç¬¦åˆç¼–ç çš„é€šç”¨çº¦å®šã€‚
+ * é€šå¸¸ï¼Œiçš„å«ä¹‰åº”è¯¥æŒ‡ç´¢å¼•ï¼Œå³ä»Ž0å¼€å§‹è®¡æ•°ã€‚
  */
 Status GetElem(SqList L, int i, ElemType* e);
 
 /*
- * ¨€¨€¨€¨€¨€¨€¨€¨€ Ëã·¨2.6 ¨€¨€¨€¨€¨€¨€¨€¨€
+ * â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ ç®—æ³•2.6 â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
  *
- * ²éÕÒ
+ * æŸ¥æ‰¾
  *
- * ·µ»ØË³Ðò±íÖÐÊ×¸öÓëeÂú×ãCompare¹ØÏµµÄÔªËØÎ»Ðò¡£
- * Èç¹û²»´æÔÚÕâÑùµÄÔªËØ£¬Ôò·µ»Ø0¡£
+ * è¿”å›žé¡ºåºè¡¨ä¸­é¦–ä¸ªä¸Žeæ»¡è¶³Compareå…³ç³»çš„å…ƒç´ ä½åºã€‚
+ * å¦‚æžœä¸å­˜åœ¨è¿™æ ·çš„å…ƒç´ ï¼Œåˆ™è¿”å›ž0ã€‚
  *
- *¡¾±¸×¢¡¿
- * ÔªËØeÊÇCompareº¯ÊýµÚ¶þ¸öÐÎ²Î
+ *ã€å¤‡æ³¨ã€‘
+ * å…ƒç´ eæ˜¯Compareå‡½æ•°ç¬¬äºŒä¸ªå½¢å‚
  */
 int LocateElem(SqList L, ElemType e, Status(Compare)(ElemType, ElemType));
 
 /*
- * Ç°Çý
+ * å‰é©±
  *
- * »ñÈ¡ÔªËØcur_eµÄÇ°Çý£¬
- * Èç¹û´æÔÚ£¬½«Æä´æ´¢µ½pre_eÖÐ£¬·µ»ØOK£¬
- * Èç¹û²»´æÔÚ£¬Ôò·µ»ØERROR¡£
+ * èŽ·å–å…ƒç´ cur_eçš„å‰é©±ï¼Œ
+ * å¦‚æžœå­˜åœ¨ï¼Œå°†å…¶å­˜å‚¨åˆ°pre_eä¸­ï¼Œè¿”å›žOKï¼Œ
+ * å¦‚æžœä¸å­˜åœ¨ï¼Œåˆ™è¿”å›žERRORã€‚
  */
 Status PriorElem(SqList L, ElemType cur_e, ElemType* pre_e);
 
 /*
- * ºó¼Ì
+ * åŽç»§
  *
- * »ñÈ¡ÔªËØcur_eµÄºó¼Ì£¬
- * Èç¹û´æÔÚ£¬½«Æä´æ´¢µ½next_eÖÐ£¬·µ»ØOK£¬
- * Èç¹û²»´æÔÚ£¬Ôò·µ»ØERROR¡£
+ * èŽ·å–å…ƒç´ cur_eçš„åŽç»§ï¼Œ
+ * å¦‚æžœå­˜åœ¨ï¼Œå°†å…¶å­˜å‚¨åˆ°next_eä¸­ï¼Œè¿”å›žOKï¼Œ
+ * å¦‚æžœä¸å­˜åœ¨ï¼Œåˆ™è¿”å›žERRORã€‚
  */
 Status NextElem(SqList L, ElemType cur_e, ElemType* next_e);
 
 /*
- * ¨€¨€¨€¨€¨€¨€¨€¨€ Ëã·¨2.4 ¨€¨€¨€¨€¨€¨€¨€¨€
+ * â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ ç®—æ³•2.4 â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
  *
- * ²åÈë
+ * æ’å…¥
  *
- * ÏòË³Ðò±íµÚi¸öÎ»ÖÃÉÏ²åÈëe£¬²åÈë³É¹¦Ôò·µ»ØOK£¬·ñÔò·µ»ØERROR¡£
+ * å‘é¡ºåºè¡¨ç¬¬iä¸ªä½ç½®ä¸Šæ’å…¥eï¼Œæ’å…¥æˆåŠŸåˆ™è¿”å›žOKï¼Œå¦åˆ™è¿”å›žERRORã€‚
  *
- *¡¾±¸×¢¡¿
- * ½Ì²ÄÖÐiµÄº¬ÒåÊÇÔªËØÎ»ÖÃ£¬´Ó1¿ªÊ¼¼ÆÊý
+ *ã€å¤‡æ³¨ã€‘
+ * æ•™æä¸­içš„å«ä¹‰æ˜¯å…ƒç´ ä½ç½®ï¼Œä»Ž1å¼€å§‹è®¡æ•°
  */
 Status ListInsert(SqList* L, int i, ElemType e);
 
 /*
- * ¨€¨€¨€¨€¨€¨€¨€¨€ Ëã·¨2.5 ¨€¨€¨€¨€¨€¨€¨€¨€
+ * â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ ç®—æ³•2.5 â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
  *
- * É¾³ý
+ * åˆ é™¤
  *
- * É¾³ýË³Ðò±íµÚi¸öÎ»ÖÃÉÏµÄÔªËØ£¬²¢½«±»É¾³ýÔªËØ´æ´¢µ½eÖÐ¡£
- * É¾³ý³É¹¦Ôò·µ»ØOK£¬·ñÔò·µ»ØERROR¡£
+ * åˆ é™¤é¡ºåºè¡¨ç¬¬iä¸ªä½ç½®ä¸Šçš„å…ƒç´ ï¼Œå¹¶å°†è¢«åˆ é™¤å…ƒç´ å­˜å‚¨åˆ°eä¸­ã€‚
+ * åˆ é™¤æˆåŠŸåˆ™è¿”å›žOKï¼Œå¦åˆ™è¿”å›žERRORã€‚
  *
- *¡¾±¸×¢¡¿
- * ½Ì²ÄÖÐiµÄº¬ÒåÊÇÔªËØÎ»ÖÃ£¬´Ó1¿ªÊ¼¼ÆÊý
+ *ã€å¤‡æ³¨ã€‘
+ * æ•™æä¸­içš„å«ä¹‰æ˜¯å…ƒç´ ä½ç½®ï¼Œä»Ž1å¼€å§‹è®¡æ•°
  */
 Status ListDelete(SqList* L, int i, ElemType* e);
 
 /*
- * ±éÀú
+ * éåŽ†
  *
- * ÓÃvisitº¯Êý·ÃÎÊË³Ðò±íL
+ * ç”¨visitå‡½æ•°è®¿é—®é¡ºåºè¡¨L
  */
 void ListTraverse(SqList L, void (Visit)(ElemType));
 
