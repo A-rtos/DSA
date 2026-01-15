@@ -6,12 +6,12 @@ CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 OBJ      = Status.o
 LINKOBJ  = Status.o
-LIBS     = -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib" -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -g3 -mwindows
+LIBS     = -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib" -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc E:/DSA/DataStructure/Status/Status.a -g3 -mwindows
 INCS     = -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"E:/DSA/DataStructure/Status"
-CXXINCS  = -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+CXXINCS  = -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"E:/DSA/DataStructure/Status"
 BIN      = Status.a
-CXXFLAGS = $(CXXINCS) -g3 -mwindows
-CFLAGS   = $(INCS) -g3 -mwindows
+CXXFLAGS = $(CXXINCS) -g3 -mwindows -fexec-charset=GBK
+CFLAGS   = $(INCS) -g3 -mwindows -fexec-charset=GBK
 DEL      = D:\EIDE\Dev-Cpp\devcpp.exe INTERNAL_DEL
 
 .PHONY: all all-before all-after clean clean-custom
