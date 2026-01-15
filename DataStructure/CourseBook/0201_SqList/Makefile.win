@@ -1,0 +1,31 @@
+# Project: SqList
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = SqList-main.o SqList.o
+LINKOBJ  = SqList-main.o SqList.o
+LIBS     = -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib" -L"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc E:/DSA/DataStructure/Status/Status.a -g3
+INCS     = -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"E:/DSA/DataStructure/Status"
+CXXINCS  = -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/EIDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"E:/DSA/DataStructure/Status"
+BIN      = SqList.exe
+CXXFLAGS = $(CXXINCS) -g3 -fexec-charset=GBK
+CFLAGS   = $(INCS) -g3 -fexec-charset=GBK
+DEL      = D:\EIDE\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+SqList-main.o: SqList-main.cpp
+	$(CC) -c SqList-main.cpp -o SqList-main.o $(CFLAGS)
+
+SqList.o: SqList.cpp
+	$(CC) -c SqList.cpp -o SqList.o $(CFLAGS)
