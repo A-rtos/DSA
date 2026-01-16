@@ -1,17 +1,21 @@
-/*=============================
- * 线性表的顺序存储结构（顺序表）
+/**
+ * @file SqList.h
+ * @author A-rtos (A-rtos@outlook.com)
+ * @brief 线性表的顺序存储结构（顺序表），包含算法: 2.3、2.4、2.5、2.6
+ * @version 0.1
+ * @date 2026-01-15
  *
- * 包含算法: 2.3、2.4、2.5、2.6
- =============================*/
+ * @copyright Copyright (c) 2026
+ *
+ */
 
 #ifndef SQLIST_H
 #define SQLIST_H
 
 #include <stdio.h>
-#include <stdlib.h> // 提供malloc、realloc、free、exit原型
-#include "Status.h" //**▲01 绪论**//
+#include <stdlib.h>
+#include "Status.h"
 
-/* 宏定义 */
 #define LIST_INIT_SIZE 100 // 顺序表存储空间的初始分配量
 #define LISTINCREMENT 10   // 顺序表存储空间的分配增量
 
@@ -31,7 +35,7 @@ typedef struct
 } SqList;
 
 /*
- * ████████ 算法2.3 ████████
+ * ===== 算法2.3 =====
  *
  * 初始化
  *
@@ -84,7 +88,7 @@ int ListLength(SqList L);
 Status GetElem(SqList L, int i, ElemType *e);
 
 /*
- * ████████ 算法2.6 ████████
+ * ===== 算法2.6 =====
  *
  * 查找
  *
@@ -115,9 +119,7 @@ Status PriorElem(SqList L, ElemType cur_e, ElemType *pre_e);
 Status NextElem(SqList L, ElemType cur_e, ElemType *next_e);
 
 /*
- * ████████ 算法2.4 ████████
- *
- * 插入
+ * ===== 算法2.4 =====
  *
  * 向顺序表第i个位置上插入e，插入成功则返回OK，否则返回ERROR。
  *
@@ -127,7 +129,7 @@ Status NextElem(SqList L, ElemType cur_e, ElemType *next_e);
 Status ListInsert(SqList *L, int i, ElemType e);
 
 /*
- * ████████ 算法2.5 ████████
+ * ===== 算法2.5 =====
  *
  * 删除
  *

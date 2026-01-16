@@ -24,10 +24,6 @@
 #define OVERFLOW -2 // 堆栈上溢
 #endif
 
-#ifndef NULL
-#define NULL ((void *)0)
-#endif
-
 /* 状态码类型 */
 typedef int Status;
 
